@@ -11,20 +11,11 @@ module Rpg
       @level = 1
     end
 
-    def equip(weapon)
-      @weapon = weapon
-      puts "#{weapon.name} is equipped.\n\n"
-    end
-
     def attack(target)
       round_damage = damage
-      return puts 'Miss!' if round_damage.zero?
+      return puts "Miss!\n\n" if round_damage.zero?
       apply_damage(round_damage, target)
-      enemy_dead(target) unless target.alive?
-    end
-
-    def weapon
-      @weapon ? @weapon.name : 'none'
+      target_dead(target) unless target.alive?
     end
 
     def alive?
@@ -40,7 +31,7 @@ module Rpg
     def damage
       round_strength = Random.rand(strength)
       round_damage = @weapon ? @weapon.damage + round_strength : round_strength
-      puts "Your attack was #{round_damage}"
+      puts "#{@name} attack was #{round_damage}"
       round_damage
     end
 
@@ -49,13 +40,9 @@ module Rpg
       puts "#{target.name} HP is #{target.hp}\n\n" if target.hp > 0
     end
 
-    def enemy_dead(target)
+    def target_dead(target)
       puts "#{target.name} is dead\n\n"
       add_exp(target.exp)
-    end
-
-    def add_exp(exp)
-      @exp += exp
     end
   end
 end
