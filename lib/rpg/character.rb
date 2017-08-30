@@ -3,12 +3,12 @@ module Rpg
     attr_reader :name
     attr_accessor :hp, :strength, :level, :exp
 
-    def initialize(name, hp: 30, strength: 6)
+    def initialize(name, hp = 30, strength = 6, exp = 0)
       @name = name
       @hp = hp
       @strength = strength
+      @exp = exp
       @level = 1
-      @exp = 0
     end
 
     def equip(weapon)
@@ -20,6 +20,7 @@ module Rpg
       round_damage = damage
       return puts 'Miss!' if round_damage.zero?
       apply_damage(round_damage, target)
+      enemy_dead(target) unless target.alive?
     end
 
     def weapon
@@ -45,7 +46,16 @@ module Rpg
 
     def apply_damage(damage, target)
       target.hp -= damage
-      puts target.alive? ? "#{target.name} HP is #{target.hp}\n\n" : "#{target.name} is dead"
+      puts "#{target.name} HP is #{target.hp}\n\n" if target.hp > 0
+    end
+
+    def enemy_dead(target)
+      puts "#{target.name} is dead\n\n"
+      add_exp(target.exp)
+    end
+
+    def add_exp(exp)
+      @exp += exp
     end
   end
 end
