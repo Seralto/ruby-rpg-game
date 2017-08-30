@@ -1,17 +1,13 @@
-# Main game
-module Game
-  require_relative 'weapon'
-  require_relative 'hero'
+require './lib/rpg'
 
-  system 'clear'
+system 'clear'
 
-  sword = Weapon.new('Short sword', 3)
+sword = Rpg::Weapon.new('Short sword', 3)
 
-  hero = Hero.new('Odin')
-  puts hero
-  hero.equip(sword)
-  # puts "Weapon: #{hero.weapon}"
+hero = Rpg::Hero.new('Odin')
+puts hero
+hero.equip(sword)
+# puts "Weapon: #{hero.weapon}"
+monster = Rpg::Enemy.new('Skull-en')
 
-  monster = Hero.new('Skull-en')
-  hero.atack(monster)
-end
+hero.attack(monster) while monster.alive?
