@@ -3,7 +3,7 @@ module Rpg
     attr_reader :name
     attr_accessor :hp, :strength, :level, :exp
 
-    def initialize(name, hp = 30, strength = 6, exp = 0)
+    def initialize(name:, hp: 30, strength: 6, exp: 0)
       @name = name
       @hp = hp
       @strength = strength
@@ -43,6 +43,10 @@ module Rpg
     def target_dead(target)
       puts "#{target.name} is dead\n\n"
       add_exp(target.exp) if is_a?(Hero)
+    end
+
+    def level_up
+      #
     end
   end
 end

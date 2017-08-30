@@ -5,7 +5,7 @@ module Rpg
     def weapon
       @weapon ? @weapon.name : 'none'
     end
-    
+
     def equip(weapon)
       @weapon = weapon
       puts "#{weapon.name} is equipped.\n\n"

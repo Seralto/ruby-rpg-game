@@ -2,7 +2,7 @@ require './lib/rpg'
 
 system 'clear'
 
-hero = Rpg::Hero.new('Odin')
+hero = Rpg::Hero.new(name: 'Odin')
 puts hero
 
 sword = Rpg::Weapon.new('Short sword', 3)
@@ -13,7 +13,9 @@ monsters_killed = 0
 while hero.alive?
   puts '****** To battle! ******'
   puts hero
-  monster = Rpg::Enemy.new('Skull-en', Random.rand(10) + 10, Random.rand(3) + 3, Random.rand(5) + 5)
+  monster = Rpg::Enemy.new(
+    name: 'Skull-en', hp: Random.rand(10) + 10, strength: Random.rand(3) + 3, exp: Random.rand(5) + 5
+  )
   puts monster
 
   while monster.alive?
