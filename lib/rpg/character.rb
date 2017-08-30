@@ -38,9 +38,9 @@ module Rpg
 
     def damage
       round_strength = Random.rand(strength)
-      round_round_damage = @weapon ? @weapon.damage + round_strength : round_strength
-      puts "Your attack was #{round_round_damage}"
-      round_round_damage
+      round_damage = @weapon ? @weapon.damage + round_strength : round_strength
+      puts "Your attack was #{round_damage}"
+      round_damage
     end
 
     def apply_damage(damage, target)
