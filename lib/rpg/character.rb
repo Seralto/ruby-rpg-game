@@ -42,7 +42,7 @@ module Rpg
 
     def target_dead(target)
       puts "#{target.name} is dead\n\n"
-      add_exp(target.exp)
+      add_exp(target.exp) if is_a?(Hero)
     end
   end
 end
