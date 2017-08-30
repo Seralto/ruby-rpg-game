@@ -1,5 +1,4 @@
-module Game
-  # Weapon class
+module Rpg
   class Weapon
     attr_reader :name, :damage
 
