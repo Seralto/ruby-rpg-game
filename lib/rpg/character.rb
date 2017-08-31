@@ -19,11 +19,11 @@ module Rpg
     end
 
     def alive?
-      hp > 0
+      @hp > 0
     end
 
     def to_s
-      "[#{name}]\n HP: #{hp}\n Strength: #{strength}\n Level: #{level}\n Exp: #{exp}\n\n"
+      "[#{@name}]\n HP: #{@hp}\n Strength: #{@strength}\n Level: #{@level}\n Exp: #{@exp}\n\n"
     end
 
     private
