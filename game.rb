@@ -8,6 +8,8 @@ puts hero
 sword = Rpg::Weapon.new('Short sword', 3)
 hero.equip(sword)
 
+cure = Rpg::Potion.new('Elixir', 20)
+
 MONSTERS = [
   { name: 'Skull-in', hp: 20, strength: 5, exp: 10 },
   { name: 'Werebat', hp: 12, strength: 4, exp: 6 },
@@ -26,6 +28,8 @@ while hero.alive?
     hero.attack(monster)
     monster.attack(hero) if monster.alive?
   end
+
+  cure.heal(hero) if Random.rand(5) == 5
 
   monsters_killed += 1 if hero.alive?
 end
