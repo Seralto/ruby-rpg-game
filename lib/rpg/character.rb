@@ -1,14 +1,13 @@
 module Rpg
   class Character
     attr_reader :name
-    attr_accessor :hp, :strength, :level, :exp
+    attr_accessor :hp, :strength, :exp
 
     def initialize(name:, hp: 30, strength: 6, exp: 0)
       @name = name
       @hp = hp
       @strength = strength
       @exp = exp
-      @level = 1
     end
 
     def attack(target)
@@ -23,7 +22,7 @@ module Rpg
     end
 
     def to_s
-      "[#{@name}]\n HP: #{@hp}\n Strength: #{@strength}\n Level: #{@level}\n Exp: #{@exp}\n\n"
+      "[#{@name}]\n HP: #{@hp}\n Strength: #{@strength}\n Exp: #{@exp}\n\n"
     end
 
     private
@@ -43,10 +42,6 @@ module Rpg
     def target_dead(target)
       puts "#{target.name} is dead\n\n"
       add_exp(target.exp) if is_a?(Hero)
-    end
-
-    def level_up
-      #
     end
   end
 end
