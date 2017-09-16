@@ -10,27 +10,26 @@ module Rpg
       @exp = exp
     end
 
+    def to_s
+      "#{name}\n HP: #{hp}\n Strength: #{strength}\n Exp: #{exp}\n\n"
+    end
+
     def attack(target)
       round_damage = damage
-      return puts "Miss!\n\n" if round_damage.zero?
       apply_damage(round_damage, target)
       target_dead(target) unless target.alive?
     end
 
     def alive?
-      @hp > 0
-    end
-
-    def to_s
-      "[#{@name}]\n HP: #{@hp}\n Strength: #{@strength}\n Exp: #{@exp}\n\n"
+      hp > 0
     end
 
     private
 
     def damage
       round_strength = Random.rand(strength)
-      round_damage = @weapon ? @weapon.damage + round_strength : round_strength
-      puts "#{@name} attack was #{round_damage}"
+      round_damage = @weapon ? round_strength + @weapon.damage : round_strength
+      puts round_damage.zero? ? "#{@name} miss!\n" : "#{@name} attack was #{round_damage}"
       round_damage
     end
 
