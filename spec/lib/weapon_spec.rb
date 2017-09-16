@@ -1,7 +1,7 @@
 require './spec/spec_helper'
 
 describe 'Weapon' do
-  let(:subject) { Weapon.new('Sword', 5) }
+  let(:subject) { Weapon.new(name: 'Sword', damage: 5) }
 
   context 'when a Weapon is created' do
     it 'has valid attributes' do
