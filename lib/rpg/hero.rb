@@ -1,3 +1,5 @@
+require './lib/rpg/character'
+
 module Rpg
   class Hero < Character
     def equip(weapon)

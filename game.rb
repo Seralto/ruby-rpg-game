@@ -1,7 +1,5 @@
 require './lib/rpg'
 
-system 'clear'
-
 hero = Rpg::Hero.new(name: 'Odin')
 puts hero
 
